@@ -161,15 +161,18 @@ class twm(SHG_solve):
         print('time elapsed = '+str(end-start)+' seconds')
 
     def plot_efficiency(self,sx=8,sy=8,suffix='0'):
-        # plt.imshow(self.efficiency, origin='lower', extent=[-2, 2, -2, 2], interpolation='spline36')
         print('max efficiency = ' + str(2 * np.amax(self.efficiency)))
         print('Qcb = ' + str(self.Qcb[np.where(self.efficiency == np.amax(self.efficiency))[0][0]]))
         print('Qcc = ' + str(self.Qcc[np.where(self.efficiency == np.amax(self.efficiency))[1][0]]))
+        print('Qlb = ' + str(self.Qlb[np.where(self.efficiency == np.amax(self.efficiency))[0][0]]))
+        print('Qlc = ' + str(self.Qlc[np.where(self.efficiency == np.amax(self.efficiency))[1][0]]))
         fig, ax = plt.subplots(1, 1, figsize=(sx, sy))
-        ax.imshow(self.efficiency, origin='lower', extent=[-2, 2, -2, 2], interpolation='spline36')
+        ax.set_xlabel('Log$_{10}$($Q_{cb}/Q_{0b}$)')
+        ax.set_ylabel('Log$_{10}$($Q_{ca}/Q_{0a}$)')
+        ax.imshow(self.efficiency, origin='lower', extent=[self.log_ratio[0], self.log_ratio[1], self.log_ratio[0], self.log_ratio[1]], interpolation='spline36')
         plt.show()
-        ax.imshow(self.efficiency, origin='lower', extent=[-2, 2, -2, 2], interpolation='spline36')
-        fig.savefig(str(self.Pin_a[0])+'_'+str(self.Pin_b)+'efficiency'+suffix+'.png', bbox_inches="tight")
+        ax.imshow(self.efficiency, origin='lower', extent=[self.log_ratio[0], self.log_ratio[1], self.log_ratio[0], self.log_ratio[1]], interpolation='spline36')
+        fig.savefig('Pin_a='+str(self.Pin_a[0])+'_'+'Pin_b='+str(self.Pin_b[0])+'efficiency'+suffix+'.png', bbox_inches="tight")
 
     def wavelength_sweep(self,lambda_start=None,lambda_end=None,N=None,marker=None):
         if lambda_start == None or lambda_end == None or N == None or marker == None:
@@ -210,22 +213,14 @@ class twm(SHG_solve):
                 coeffs = [fifth,fourth,third,second,first,zeroth]
                 self.roots = np.roots(coeffs)
                 print(np.real(self.roots[np.isreal(self.roots)])[np.where(np.real(self.roots[np.isreal(self.roots)])>0)])
-                try:
-                    self.ss_b[i][j] = np.amin(np.real(self.roots[np.isreal(self.roots)])[np.where(np.real(self.roots[np.isreal(self.roots)])>0)])
-                except:
-                    pdb.set_trace()
+                self.ss_b[i][j] = np.amin(np.real(self.roots[np.isreal(self.roots)])[np.where(np.real(self.roots[np.isreal(self.roots)])>0)])
                 self.ss_c[i][j] = self.ss_b[i][j] * self.g**2 * np.abs(self.epsilon_pa[j])**2 / (A - B*self.ss_b[i][j] + C*self.ss_b[i][j]**2)
                 self.ss_a[i][j] = np.abs(self.epsilon_pa[j])**2 * self.kc[j]**2 / (A - B*self.ss_b[i][j] + C*self.ss_b[i][j]**2)
                 print(self.ss_b[i][j],self.ss_c[i][j],self.ss_a[i][j],i,j)
                 self.efficiency[i][j] = self.ss_c[i][j] * np.asarray(
                     (self.w_c / self.Qcc[j]) * self.hbar * self.w_c)/self.Pin_b[0]
-        print('max efficiency = ' + str(2 * np.amax(self.efficiency)))
-        print('Qcb = ' + str(self.Qlb[np.where(self.efficiency == np.amax(self.efficiency))[0][0]]))
-        print('Qcc = ' + str(self.Qlc[np.where(self.efficiency == np.amax(self.efficiency))[1][0]]))
         if self.log_ratio:
-            plt.imshow(self.efficiency, origin='lower', extent=[self.log_ratio[0], self.log_ratio[1], self.log_ratio[0], self.log_ratio[1]], interpolation='spline36')
-            plt.show()
-
+            self.plot_efficiency()
 
     def save_data(self,track,i,j):
         df = pd.DataFrame(dict([(k,pd.Series(v)) for k,v in track.items()]))
