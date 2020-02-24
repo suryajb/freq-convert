@@ -1,0 +1,598 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1cm
+\topmargin 1cm
+\rightmargin 1cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Part*
+Three-wave mixing equations of motion
+\end_layout
+
+\begin_layout Standard
+For analysis of a two mode coupling system (SHG, or degenerate three-wave
+ mixing)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{a}=(-i\delta_{a}-\kappa_{a})a-i2g_{0}ba^{*}-i\sqrt{2\kappa_{a,1}}a_{pump}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\dot{b}=(-i\delta_{b}-\kappa_{b})b-ig_{0}a^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the general case for any three wave mixing problem with two pump tones,
+ we can write the Hamiltonian as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{alignedat}{1}\frac{H}{\hbar}= & \ \omega_{a}\hat{a}^{\dagger}a+\omega_{b}\hat{b}^{\dagger}\hat{b}+\omega_{c}\hat{c}^{\dagger}c+g\left(\hat{a}\hat{b}^{\dagger}\hat{c}e^{it\left(\omega_{a}-\omega_{fb}+\left(\omega_{fb}-\omega_{a}\right)\right)}+\hat{a}^{\dagger}\hat{b}\hat{c}^{\dagger}e^{-it\left(\omega_{a}-\omega_{fb}+\left(\omega_{fb}-\omega_{a}\right)\right)}\right)\\
++ & \ i\sqrt{2\kappa_{a,1}\frac{P_{a}}{\hbar\omega_{a}}}\left(-\hat{a}e^{i\omega_{a}t}+\hat{a}^{\dagger}e^{-i\omega_{a}t}\right)\\
++ & \ i\sqrt{2\kappa_{b,1}\frac{P_{b}}{\hbar\omega_{fb}}}\left(-\hat{b}e^{i\omega_{fb}t}+\hat{b}^{\dagger}e^{-i\omega_{fb}t}\right)
+\end{alignedat}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+for the sake of simplicity, we can assume that g is the same for each case.
+ We can then derive the equations of motion using the Heisenberg picture.
+ The above equation is difficult to solve, so we apply a frame change using
+ a unitary transformation.
+ By definition, a unitary matrix is defined as 
+\begin_inset Formula $U^{\dagger}U=1$
+\end_inset
+
+.
+ So we can insert it whereever we please and choose 
+\begin_inset Formula $U$
+\end_inset
+
+ in order to simplify the equation.
+ Under this transformation, the Hamiltonian is written as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H\rightarrow UHU^{\dagger}+i\hbar\dot{U}U^{\dagger}=\breve{H}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where a useful identity is: 
+\begin_inset Formula $e^{\alpha\hat{x}}\hat{y}e^{-\alpha\hat{x}}=\hat{y}+\alpha\left[\hat{x},\hat{y}\right]+\frac{\alpha^{2}}{2!}\left[\hat{x},\left[\hat{x},\hat{y}\right]\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+we can define 
+\begin_inset Formula $\alpha=it,\ \hat{x}=\omega_{a}\hat{a}^{\dagger}\hat{a}+\omega_{fb}\hat{b}^{\dagger}\hat{b}+\left(\omega_{fb}-\omega_{a}\right)\hat{c}^{\dagger}c,\ \hat{y}=H,\ U=e^{it\left(\omega_{a}\hat{a}^{\dagger}\hat{a}+\omega_{fb}\hat{b}^{\dagger}\hat{b}+\left(\omega_{fb}-\omega_{a}\right)\hat{c}^{\dagger}c\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+from the above definitions, we arrive at
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{cc}
+UHU^{\dagger}= & H+it\left[\omega_{a}\hat{a}^{\dagger}\hat{a}+\omega_{fb}\hat{b}^{\dagger}\hat{b}+\left(\omega_{fb}-\omega_{a}\right)\hat{c}^{\dagger}c,H\right]+...\left(O^{2}\right)\\
+i\dot{U}U^{\dagger}= & i\left(i\right)\left(\omega_{fa}\hat{a}^{\dagger}\hat{a}+\omega_{fb}\hat{b}^{\dagger}\hat{b}+...\right)e^{it\left(\omega_{a}\hat{a}^{\dagger}\hat{a}+\omega_{fb}\hat{b}^{\dagger}\hat{b}+...\right)}e^{-it\left(\omega_{a}\hat{a}^{\dagger}\hat{a}+\omega_{fb}\hat{b}^{\dagger}\hat{b}+...\right)}\\
+i\dot{U}U^{\dagger}= & -\left(\omega_{a}\hat{a}^{\dagger}\hat{a}+\omega_{fb}\hat{b}^{\dagger}\hat{b}+\left(\omega_{fb}-\omega_{a}\right)\hat{c}^{\dagger}c\right)
+\end{array}\label{eq:commutator}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+number operators will always commute with each other, i.e.
+ 
+\begin_inset Formula $\left[\hat{a}^{\dagger}\hat{a},\hat{a}^{\dagger}\hat{a}\right]=0$
+\end_inset
+
+, and the commutator of number operators with any ladder operator is the
+ ladder operator itself.
+ 
+\begin_inset Formula $\left[\hat{a}^{\dagger}\hat{a},\hat{a}^{\dagger}\right]=\hat{a}^{\dagger}$
+\end_inset
+
+, 
+\begin_inset Formula $\left[\hat{a}^{\dagger}\hat{a},\hat{a}\right]=-\hat{a}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{aligned}e^{it\left(\omega_{a}\hat{a}^{\dagger}\hat{a}+\omega_{fb}\hat{b}^{\dagger}\hat{b}+\left(\omega_{fb}-\omega_{a}\right)\hat{c}^{\dagger}c\right)} & \left(g\hat{a}\hat{b}^{\dagger}\hat{c}e^{it\left(\omega_{a}-\omega_{fb}+\left(\omega_{fb}-\omega_{a}\right)\right)}\right)e^{-it\left(\omega_{a}\hat{a}^{\dagger}\hat{a}+\omega_{fb}\hat{b}^{\dagger}\hat{b}+\left(\omega_{fb}-\omega_{a}\right)\hat{c}^{\dagger}c\right)}\\
+=g\hat{a}\hat{b}^{\dagger}\hat{c}
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since we can see that, 
+\begin_inset Formula $e^{\alpha\hat{c}^{\dagger}\hat{c}}\hat{c}e^{-\alpha\hat{c}^{\dagger}\hat{c}}=\hat{c}+\alpha\hat{c}+\frac{\alpha^{2}}{2!}\hat{c}+\frac{\alpha^{3}}{3!}\hat{c}+...=\hat{c}e^{\alpha}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The simplified Hamiltonian, with the unitary transformation where 
+\begin_inset Formula $U=e^{it\left(\omega_{a}\hat{a}^{\dagger}\hat{a}+\omega_{fb}\hat{b}^{\dagger}\hat{b}+\left(\omega_{fb}-\omega_{a}\right)\hat{c}^{\dagger}c\right)}$
+\end_inset
+
+ can be written as,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{aligned}\breve{H}= & \ \left(\omega_{b}-\omega_{fb}\right)\hat{b}^{\dagger}\hat{b}+\left(\omega_{c}-\left(\omega_{fb}-\omega_{a}\right)\right)\hat{c}^{\dagger}c+g\hat{a}\hat{b}^{\dagger}\hat{c}+g\hat{a}^{\dagger}\hat{b}\hat{c}^{\dagger}\\
++ & \ i\epsilon_{a}\left(-\hat{a}+\hat{a}^{\dagger}\right)+i\epsilon_{fb}\left(-\hat{b}+\hat{b}^{\dagger}\right)
+\end{aligned}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The time variation of an operator 
+\begin_inset Formula $p=\hat{a},\hat{b},\hat{c}$
+\end_inset
+
+ can be written as 
+\begin_inset Formula $\frac{d}{dt}p=-i\cdot\left[p,H\right]-\kappa_{p}p$
+\end_inset
+
+, therefore the coupled equations of motions of modes 
+\begin_inset Formula $a,b,c$
+\end_inset
+
+ are 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{aligned}\frac{d}{dt}\hat{a}= & -\kappa_{a}\hat{a}-ig\hat{b}\hat{c}^{\dagger}+\epsilon_{a}\\
+\frac{d}{dt}\hat{b}= & -\left(i\left(\omega_{b}-\omega_{fb}\right)+\kappa_{b}\right)\hat{b}-ig\hat{a}\hat{c}+\epsilon_{b}\\
+\frac{d}{dt}\hat{c}= & -\left(i\left(\omega_{c}-\left(\omega_{fb}-\omega_{a}\right)\right)+\kappa_{c}\right)\hat{c}-ig\hat{a}^{\dagger}\hat{b}
+\end{aligned}
+\label{eq:eom}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To factor in temperature effects, we note that the resonant frequencies
+ are dependent on temperature with a steady-state relation of,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\omega_{a,b,c}=\omega_{a,b,c}\left(T_{0}\right)+K_{a,b,c}\left(T_{ring}-T_{0}\right)=\omega_{a,b,c}\left(T_{0}\right)+K_{a,b,c}\Delta T
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where 
+\begin_inset Formula $K_{a,b,c}$
+\end_inset
+
+ is the respective temperature coefficient of the various modes, and is
+ approximately equal to 
+\begin_inset Formula $K_{a,b,c}=\varepsilon+\frac{\frac{dn}{dT}}{n_{0}}$
+\end_inset
+
+, containing the effects of both thermal expansion 
+\begin_inset Formula $\left(\varepsilon\right)$
+\end_inset
+
+ and refractive index change.
+ The simplified differential equation (thermal diffusion, see C.
+ Schmidt et.
+ al.
+ 2008 
+\begin_inset Quotes eld
+\end_inset
+
+Nonlinear thermal effects in optical microspheres at different wavelength
+ sweeping speeds
+\begin_inset Quotes erd
+\end_inset
+
+ for details) that describes the nonlinear dynamics of temperature effects
+ can be written as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{d}{dt}\Delta T=K_{th,a}\left|a\right|^{2}+K_{th,b}\left|b\right|^{2}+K_{th,c}\left|c\right|^{2}-\gamma_{th}\Delta T
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where 
+\begin_inset Formula $K_{th}$
+\end_inset
+
+ is dependent on the absorption of mode a,b,c photons, specific heat, as
+ well as material density.
+ For simplification of the model, we can express 
+\begin_inset Formula $\Delta T$
+\end_inset
+
+ as a time independent quantity.
+ From experiments, the relaxation time is on the order of tens of microseconds.
+ 
+\end_layout
+
+\begin_layout Section*
+Steady state
+\end_layout
+
+\begin_layout Standard
+From equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eom"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, at steady state we can equate the equations of motions to 0, in the case
+ of the cavity photon number of 
+\begin_inset Formula $b$
+\end_inset
+
+ mode, we perform the following algebraic manipulations
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{alignedat}{1}a= & \frac{-igbc^{*}+\epsilon_{a}}{\kappa_{a}}\\
+b= & \frac{-igac+\epsilon_{b}}{i\delta_{b}+\kappa_{b}}\\
+c= & \frac{-iga^{*}b}{i\delta_{c}+\kappa_{c}}\\
+b= & \frac{igac-\epsilon_{b}}{X_{b}}\\
+c= & \frac{iga^{*}b}{X_{c}}\\
+a= & \frac{-igb}{\kappa_{a}}\left(\frac{-igb^{*}a}{X_{c}^{*}}\right)+\frac{\epsilon_{a}}{\kappa_{a}}=\frac{-g^{2}\left|b\right|^{2}a}{\kappa_{a}X_{c}^{*}}+\frac{\epsilon_{a}}{\kappa_{a}}\\
+= & \frac{\epsilon_{a}X_{c}^{*}}{\kappa_{a}X_{c}^{*}+g^{2}\left|b\right|^{2}}\\
+c= & \frac{ig\left(igcb^{*}+\epsilon_{a}\right)}{\kappa_{a}X_{c}}b=\frac{-g^{2}c\left|b^{2}\right|}{\kappa_{a}X_{c}}+\frac{ig\epsilon_{a}b}{\kappa_{a}X_{c}}\\
+= & \frac{ig\epsilon_{a}b}{\kappa_{a}X_{c}+g^{2}\left|b^{2}\right|}\\
+\hat{b}= & \frac{ig}{X_{b}}\frac{\epsilon_{a}X_{c}^{*}}{\kappa_{a}X_{c}^{*}+g^{2}\left|b\right|^{2}}\frac{ig\epsilon_{a}b}{\kappa_{a}X_{c}+g^{2}\left|b^{2}\right|}-\frac{\epsilon_{b}}{X_{b}}
+\end{alignedat}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+= & \frac{-g^{2}\epsilon_{a}^{2}X_{c}^{*}\hat{b}}{X_{b}\left(\kappa_{a}^{2}X_{c}^{*}X_{c}+g^{2}\left|b\right|^{2}\kappa_{a}X_{c}+g^{2}\left|b\right|^{2}\kappa_{a}X_{c}^{*}+g^{2}g^{2}\left|b\right|^{2}\left|b\right|^{2}\right)}-\frac{\epsilon_{b}}{X_{b}}=\frac{g^{2}\epsilon_{a}^{2}\kappa_{c}\hat{b}}{-\kappa_{b}\left(\kappa_{a}^{2}\kappa_{c}^{2}-2g^{2}\left|b\right|^{2}\kappa_{a}\kappa_{c}+g^{2}g^{2}\left|b\right|^{2}\left|b\right|^{2}\right)}+\frac{\epsilon_{b}}{\kappa_{b}}\\
+=> & b\left(\kappa_{b}\left(\kappa_{a}^{2}\kappa_{c}^{2}-2g^{2}\left|b\right|^{2}\kappa_{a}\kappa_{c}+g^{2}g^{2}\left|b\right|^{2}\left|b\right|^{2}\right)+g^{2}\epsilon_{a}^{2}\kappa_{c}\right)=\epsilon_{b}\left(\kappa_{a}^{2}\kappa_{c}^{2}-2g^{2}\left|b\right|^{2}\kappa_{a}\kappa_{c}+g^{2}g^{2}\left|b\right|^{2}\left|b\right|^{2}\right)\\
+b= & \frac{\epsilon_{b}\left(\kappa_{a}^{2}\kappa_{c}^{2}-2g^{2}\left|b\right|^{2}\kappa_{a}\kappa_{c}+g^{2}g^{2}\left|b\right|^{2}\left|b\right|^{2}\right)}{\kappa_{b}\left(\kappa_{a}^{2}\kappa_{c}^{2}-2g^{2}\left|b\right|^{2}\kappa_{a}\kappa_{c}+g^{2}g^{2}\left|b\right|^{2}\left|b\right|^{2}\right)+g^{2}\epsilon_{a}^{2}\kappa_{c}}=\frac{\epsilon_{b}\left(A-B\left|b\right|^{2}+C\left(\left|b\right|^{2}\right)^{2}\right)}{\kappa_{b}\left(A-B\left|b\right|^{2}+C\left(\left|b\right|^{2}\right)^{2}\right)+D}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\left|b\right|^{2}= & \frac{\epsilon_{b}^{2}\left(A^{2}-2AB\left|b\right|^{2}+\left(2AC+B^{2}\right)\left(\left|b\right|^{2}\right)^{2}-2BC\left(\left|b\right|^{2}\right)^{3}+C^{2}\left(\left|b\right|^{2}\right)^{4}\right)}{D^{2}+2\kappa_{b}D\left(A-B\left|b\right|^{2}+C\left(\left|b\right|^{2}\right)^{2}\right)+\kappa_{b}^{2}\left(A^{2}-2AB\left|b\right|^{2}+\left(2AC+B^{2}\right)\left(\left|b\right|^{2}\right)^{2}-2BC\left(\left|b\right|^{2}\right)^{3}+C^{2}\left(\left|b\right|^{2}\right)^{4}\right)}\\
+= & \frac{\epsilon_{b}^{2}\left(A^{2}-2AB\left|b\right|^{2}+\left(2AC+B^{2}\right)\left(\left|b\right|^{2}\right)^{2}-2BC\left(\left|b\right|^{2}\right)^{3}+C^{2}\left(\left|b\right|^{2}\right)^{4}\right)}{\left(D^{2}+2\kappa_{b}DA+\kappa_{b}^{2}A^{2}\right)-\left(2\kappa_{b}DB+2\kappa_{b}^{2}AB\right)\left|b\right|^{2}+\left(\kappa_{b}^{2}\left(2AC+B^{2}\right)+2\kappa_{b}DC\right)\left(\left|b\right|^{2}\right)^{2}-2\kappa_{b}^{2}BC\left(\left|b\right|^{2}\right)^{3}+\kappa_{b}^{2}C^{2}\left(\left|b\right|^{2}\right)^{4}}\\
+=>0= & \left(\epsilon_{b}^{2}A^{2}-2\epsilon_{b}^{2}AB\left|b\right|^{2}+\epsilon_{b}^{2}\left(2AC+B^{2}\right)\left(\left|b\right|^{2}\right)^{2}-2\epsilon_{b}^{2}BC\left(\left|b\right|^{2}\right)^{3}+\epsilon_{b}^{2}C^{2}\left(\left|b\right|^{2}\right)^{4}\right)\\
+- & \left(D^{2}+2\kappa_{b}DA+\kappa_{b}^{2}A^{2}\right)\left|b\right|^{2}+\left(2\kappa_{b}DB+2\kappa_{b}^{2}AB\right)\left(\left|b\right|^{2}\right)^{2}-\left(\kappa_{b}^{2}\left(2AC+B^{2}\right)+2\kappa_{b}DC\right)\left(\left|b\right|^{2}\right)^{3}+2\kappa_{b}^{2}BC\left(\left|b\right|^{2}\right)^{4}-\kappa_{b}^{2}C^{2}\left(\left|b\right|^{2}\right)^{5}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From here we can gather the coefficients of the 5th order polynomial describing
+ the steady-state solutions of the input cavity field.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+0: & \epsilon_{b}^{2}A^{2}\\
+1: & -2\epsilon_{b}^{2}AB-\left(D^{2}+2\kappa_{b}DA+\kappa_{b}^{2}A^{2}\right)\\
+2: & \epsilon_{b}^{2}\left(2AC+B^{2}\right)+\left(2\kappa_{b}DB+2\kappa_{b}^{2}AB\right)\\
+3: & -2\epsilon_{b}^{2}BC-\left(\kappa_{b}^{2}\left(2AC+B^{2}\right)+2\kappa_{b}DC\right)\\
+4: & \epsilon_{b}^{2}C^{2}+2\kappa_{b}^{2}BC\\
+5: & -\kappa_{b}^{2}C^{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $A=\kappa_{a}^{2}\kappa_{c}^{2},B=2g^{2}\kappa_{a}\kappa_{c},C=g^{4},D=g^{2}\epsilon_{a}^{2}\kappa_{c}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can solve for modes 
+\begin_inset Formula $c$
+\end_inset
+
+ and 
+\begin_inset Formula $a$
+\end_inset
+
+ given the photon number of mode 
+\begin_inset Formula $b$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{alignedat}{1}\left|c\right|^{2}= & \frac{g^{2}\epsilon_{a}^{2}\left|b\right|^{2}}{A-B\left|b\right|^{2}+C\left(\left|b\right|^{2}\right)^{2}}\\
+\left|a\right|^{2}= & \frac{\kappa_{c}^{2}\epsilon_{a}^{2}}{A-B\left|b\right|^{2}+C\left(\left|b\right|^{2}\right)^{2}}
+\end{alignedat}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Transmission
+\end_layout
+
+\begin_layout Standard
+Due to the unitary matrix of the input-output relations, the transmitted
+ normalized amplitiude of mode b can be written as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{alignedat}{1}\hat{b}_{out}= & \hat{b}_{in}-\sqrt{2\kappa_{b,1}}\hat{b}\\
+= & \frac{\epsilon_{b}}{\sqrt{2\kappa_{b,1}}}+\sqrt{2\kappa_{b,1}}\frac{\epsilon_{b}\left(A-B\left|b\right|^{2}+C\left(\left|b\right|^{2}\right)^{2}\right)}{\kappa_{b}\left(A-B\left|b\right|^{2}+C\left(\left|b\right|^{2}\right)^{2}\right)+D}
+\end{alignedat}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with detuning,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+b=\frac{-g^{2}\epsilon_{a}^{2}X_{c}^{*}b}{X_{b}\left(\kappa_{a}^{2}X_{c}^{*}X_{c}+g^{2}\left|b\right|^{2}\kappa_{a}X_{c}+g^{2}\left|b\right|^{2}\kappa_{a}X_{c}^{*}+g^{2}g^{2}\left|b\right|^{2}\left|b\right|^{2}\right)}-\frac{\epsilon_{b}}{X_{b}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\hat{b}=\frac{-\epsilon_{b}\left(\kappa_{a}^{2}X_{c}^{*}X_{c}+g^{2}\left|b\right|^{2}\kappa_{a}X_{c}+g^{2}\left|b\right|^{2}\kappa_{a}X_{c}^{*}+g^{2}g^{2}\left|b\right|^{2}\left|b\right|^{2}\right)}{\left(X_{b}\left(\kappa_{a}^{2}X_{c}^{*}X_{c}+g^{2}\left|b\right|^{2}\kappa_{a}X_{c}+g^{2}\left|b\right|^{2}\kappa_{a}X_{c}^{*}+g^{2}g^{2}\left|b\right|^{2}\left|b\right|^{2}\right)+g^{2}\epsilon_{a}^{2}X_{c}^{*}\right)}=\frac{-\epsilon_{b}\left(A'+B'\left|b\right|^{2}+C'\left(\left|b\right|^{2}\right)^{2}\right)}{\left(X_{b}\left(A'+B'\left|b\right|^{2}+C'\left(\left|b\right|^{2}\right)^{2}\right)+D'\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left|b\right|^{2}=\frac{\epsilon_{b}^{2}\left(A'^{2}+2A'B'\left|b\right|^{2}+\left(2A'C'+B'^{2}\right)\left(\left|b\right|^{2}\right)^{2}+2B'C'\left(\left|b\right|^{2}\right)^{3}+C'^{2}\left(\left|b\right|^{2}\right)^{4}\right)}{\left(D'^{2}+2D'X_{b}A'+X_{b}^{2}A'^{2}\right)+\left(2X_{b}D'B'+2X_{b}^{2}A'B'\right)\left|b\right|^{2}+\left(2D'X_{b}C'+X_{b}^{2}\left(2A'C'+B'^{2}\right)\right)\left(\left|b\right|^{2}\right)^{2}+2X_{b}^{2}B'C'\left(\left|b\right|^{2}\right)^{3}+X_{b}^{2}C'^{2}\left(\left|b\right|^{2}\right)^{4}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+0: & \epsilon_{b}^{2}A'^{2}\\
+1: & D'^{2}+2D'X_{b}A'+X_{b}^{2}A'^{2}+2A'B'\\
+2: & 2A'C'+B'^{2}+2X_{b}D'B'+2X_{b}^{2}A'B'\\
+3: & 2B'C'+2D'X_{b}C'+X_{b}^{2}\left(2A'C'+B'^{2}\right)\\
+4: & C'^{2}+2X_{b}^{2}B'C'\\
+5: & X_{b}^{2}C'^{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{alignedat}{1}\hat{b}_{out}= & \frac{\epsilon_{b}}{\sqrt{2\kappa_{b,1}}}+\sqrt{2\kappa_{b,1}}\frac{-\epsilon_{b}\left(A'+B'\left|b\right|^{2}+C'\left(\left|b\right|^{2}\right)^{2}\right)}{\left(X_{b}\left(A'+B'\left|b\right|^{2}+C'\left(\left|b\right|^{2}\right)^{2}\right)+D'\right)}\end{alignedat}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where 
+\begin_inset Formula $X_{c}=-i\left(\omega_{c}-\left(\omega_{fb}-\omega_{a}\right)\right)-\kappa_{c},\ X_{b}=-i\left(\omega_{b}-\omega_{fb}\right)-\kappa_{b},\ A'=\kappa_{a}^{2}X_{c}^{*}X_{c},\ B'=-2g^{2}\kappa_{a}\kappa_{c},\ C'=g^{4},\ D'=g^{2}\epsilon_{a}^{2}X_{c}^{*},\ \epsilon_{b}=\sqrt{2\kappa_{b,1}\frac{P_{b}}{\hbar\omega_{b}}}$
+\end_inset
+
+.
+ Therefore, the transmitted power is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\begin{alignedat}{1}P_{b,out}= & \left|\hat{b}_{out}\right|^{2}\hbar\omega_{b}=P_{b}\left|1-\frac{2\kappa_{b,1}\left(A'+B'\left|b\right|^{2}+C'\left(\left|b\right|^{2}\right)^{2}\right)}{\left(X_{b}\left(A'+B'\left|b\right|^{2}+C'\left(\left|b\right|^{2}\right)^{2}\right)+D'\right)}\right|^{2}\\
+T= & \left|1-\frac{2\kappa_{b,1}\left(A'+B'\left|b\right|^{2}+C'\left(\left|b\right|^{2}\right)^{2}\right)}{\left(X_{b}\left(A'+B'\left|b\right|^{2}+C'\left(\left|b\right|^{2}\right)^{2}\right)+D'\right)}\right|^{2}
+\end{alignedat}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
