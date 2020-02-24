@@ -195,7 +195,7 @@ class twm(SHG_solve):
         else:
             print('unknown marker')
 
-    def steady_state_b(self):
+    def steady_state_b(self,plot=False):
         # solves for the steady state solution.
         self.ss_b,self.ss_c,self.ss_a = np.zeros(shape=(len(self.Qca), len(self.Qcb))),np.zeros(shape=(len(self.Qca), len(self.Qcb))),np.zeros(shape=(len(self.Qca), len(self.Qcb)))
         for i,Qcb in enumerate(self.Qcb):
@@ -216,11 +216,39 @@ class twm(SHG_solve):
                 self.ss_b[i][j] = np.amin(np.real(self.roots[np.isreal(self.roots)])[np.where(np.real(self.roots[np.isreal(self.roots)])>0)])
                 self.ss_c[i][j] = self.ss_b[i][j] * self.g**2 * np.abs(self.epsilon_pa[j])**2 / (A - B*self.ss_b[i][j] + C*self.ss_b[i][j]**2)
                 self.ss_a[i][j] = np.abs(self.epsilon_pa[j])**2 * self.kc[j]**2 / (A - B*self.ss_b[i][j] + C*self.ss_b[i][j]**2)
-                print(self.ss_b[i][j],self.ss_c[i][j],self.ss_a[i][j],i,j)
-                self.efficiency[i][j] = self.ss_c[i][j] * np.asarray(
-                    (self.w_c / self.Qcc[j]) * self.hbar * self.w_c)/self.Pin_b[0]
-        if self.log_ratio:
+                if plot == True:
+                    print(self.ss_b[i][j],self.ss_c[i][j],self.ss_a[i][j],i,j)
+                    self.efficiency[i][j] = self.ss_c[i][j] * np.asarray(
+                        (self.w_c / self.Qcc[j]) * self.hbar * self.w_c)/self.Pin_b[0]
+        if self.log_ratio and plot == True:
             self.plot_efficiency()
+
+    def steady_state_b_detuned(self,w_a,w_b,w_c,ka,kb,kc,epsilon_pa,epsilon_pb):
+        g = self.g
+        Xc = -1j*(w_c-(w_fb-w_a))-kc
+        Xb = -1j*(w_b-w_fb)-kb
+        A = ka**2 * np.abs(Xc)**2
+        B = -2*g**2 * ka * kc
+        C = g**4
+        D = g**2 * epsilon_pa**2 * np.conj(Xc)
+
+
+    def transmission_b(self):
+        '''this function plots the transmission of b, while varying the external coupling rates 
+        and the input wavelength, this assumes that pump for mode a and mode c are always 0 
+        detuned'''
+        for i,Qcb in enumerate(self.Qcb):
+            for j,Qcc in enumerate(self.Qcc):
+                for k,w_fa in enumerate(self.w_fa):
+                    for l,w_fb in enumerate(self.w_fb):
+                        Xc = -1j*(self.w_c-(w_fb-self.w_a))-self.kc[j]
+                        Xb = -1j*(self.w_b-w_fb)-self.kb[i]
+                        A = self.ka[j]**2 * np.abs(Xc)**2
+                        B = -2*self.g**2 * self.ka[j] * self.kc[j]
+                        C = self.g**4
+                        D = self.g**2 * self.epsilon_pa[j]**2 * np.conj(Xc)
+                        top = 2 * self.k1b[i] * (A + )
+                        trans = 
 
     def save_data(self,track,i,j):
         df = pd.DataFrame(dict([(k,pd.Series(v)) for k,v in track.items()]))
